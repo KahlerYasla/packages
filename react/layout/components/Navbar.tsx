@@ -4,10 +4,10 @@ import React from "react"
 import CLogoSection from "../../core/components/CLogoSection"
 
 // Icons
-import { FaTachometerAlt, FaBrain, FaTasks } from "react-icons/fa"
+import { FaBrain } from "react-icons/fa"
+import { RiGitRepositoryFill } from "react-icons/ri"
 import { GiStairsGoal } from "react-icons/gi"
-import { FaPerson } from "react-icons/fa6"
-import { MdOutlineDataThresholding } from "react-icons/md"
+import { MdAlternateEmail } from "react-icons/md"
 
 import { Link } from "react-router-dom"
 import { IconType } from "react-icons"
@@ -42,8 +42,8 @@ const Navbar: React.FC<NavbarProps> = ({ isHorizontal }) => {
                         IconComponent && "mr-4"
                     }`}
                 >
-                    <p>{title}</p>
-                    <p className="text-xs opacity-40">{subtitle}</p>
+                    <p className="">{title}</p>
+                    <p className="text-sm text-white/60">{subtitle}</p>
                 </div>
                 {IconComponent && <IconComponent className="text-2xl" />}
             </Link>
@@ -53,13 +53,14 @@ const Navbar: React.FC<NavbarProps> = ({ isHorizontal }) => {
     return (
         <nav
             className={`
-                bg-white text-black z-40
+                  text-white z-40
                     sticky top-0
-                ${isHorizontal ? "" : ""}
+                ${isHorizontal ? "drop-shadow-sm bg-black" : ""}
             `}
         >
             <div
                 className={`
+                    drop-shadow-lg
                     mx-auto flex
                 
                     ${
@@ -70,10 +71,12 @@ const Navbar: React.FC<NavbarProps> = ({ isHorizontal }) => {
                 `}
             >
                 <div className="px-4">
-                    <CLogoSection />
+                    <CLogoSection isHorizontal={isHorizontal} lightMode />
                 </div>
 
-                <hr className="w-full my-8" />
+                {!isHorizontal && (
+                    <hr className="w-full my-8 border-black opacity-20" />
+                )}
 
                 <div
                     className={`
@@ -84,26 +87,29 @@ const Navbar: React.FC<NavbarProps> = ({ isHorizontal }) => {
                 `}
                 >
                     {renderLinkButton(
-                        "tadvisor",
-                        "T-Advisor",
-                        "ai agent",
-                        FaBrain
+                        "project",
+                        "Projects",
+                        "apps & services",
+                        RiGitRepositoryFill
                     )}
                     {renderLinkButton(
-                        "home",
-                        "Compass",
-                        "dashboards",
-                        MdOutlineDataThresholding
+                        "about-us",
+                        "About Us",
+                        "team behind",
+                        FaBrain
                     )}
                     {renderLinkButton(
                         "objective",
                         "Objectives",
-                        "key-results",
+                        "our vision",
                         GiStairsGoal
                     )}
-                    {renderLinkButton("task", "Sprints", "board", FaTasks)}
-
-                    {/* {renderLinkButton("me", "Profile", "me", FaPerson)} */}
+                    {renderLinkButton(
+                        "contact",
+                        "Contact",
+                        "contact us",
+                        MdAlternateEmail
+                    )}
                 </div>
             </div>
         </nav>

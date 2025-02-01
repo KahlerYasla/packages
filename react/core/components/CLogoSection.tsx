@@ -4,12 +4,14 @@ interface CLogoSectionProps {
     lightMode?: boolean
     className?: string
     isHorizontal?: boolean
+    logoSize?: number
 }
 
 const CLogoSection: React.FC<CLogoSectionProps> = ({
     lightMode = false,
     className = "",
     isHorizontal = false,
+    logoSize = 16,
 }: CLogoSectionProps) => {
     return (
         <div
@@ -18,17 +20,17 @@ const CLogoSection: React.FC<CLogoSectionProps> = ({
          gap-2 py-1`}
         >
             <img
-                src="/brand/raw.png"
+                src="/brand/logo/raw.png"
                 alt="Logo"
-                className={`w-16 h-16 ${lightMode ? "" : ""} ${className}`}
+                className={`w-16 ${lightMode ? "" : ""} ${className}`}
             />
             {isHorizontal && (
                 <span
                     className={`font-bold ${
-                        lightMode ? "text-black" : "text-black font-normal"
+                        lightMode ? "text-white" : "text-black font-normal"
                     }`}
                 >
-                    |
+                    {`</>`}
                 </span>
             )}
             <span
@@ -36,7 +38,7 @@ const CLogoSection: React.FC<CLogoSectionProps> = ({
                     lightMode ? "text-white" : "text-black"
                 }`}
             >
-                yvisions.one
+                {document.URL.split("/")[2].split(":")[0].split(".")[0]}
             </span>
         </div>
     )

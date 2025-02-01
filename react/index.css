@@ -13,6 +13,11 @@
     --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 
     --color-primary: #c70025;
+    --color-11: #003f5c;
+    --color-22: #58508d;
+    --color-33: #bc5090;
+    --color-44: #ff6361;
+    --color-55: #ffa600;
 }
 
 :root {

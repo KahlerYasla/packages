@@ -5,7 +5,7 @@ import { CButton } from "../../core"
 const NotFoundView: React.FC = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen pb-80">
-            <CLogoSection />
+            <CLogoSection logoSize={32} />
             <h1 className="text-6xl font-bold text-gray-800 mt-4">404</h1>
             <p className="text-xl text-gray-600 mt-4">Page Not Found</p>
             <CButton
